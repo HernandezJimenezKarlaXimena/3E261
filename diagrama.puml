@@ -1,0 +1,21 @@
+@startuml
+class DonkeyKong
+class Mario
+class Pauline
+class Personaje
+class Entorno
+class Barril
+class Proyectil
+class Escalera
+class Arriba
+class Abajo
+class Derecha 
+class Izquierda
+class Viga
+
+
+
+Mario *-- Vida
+Pauline--> Personaje
+DonkeyKong o-- Pauline
+@enduml
