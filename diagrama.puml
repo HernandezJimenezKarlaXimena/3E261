@@ -15,7 +15,7 @@ class Viga
 
 
 
-Mario *-- Vida
+Mario "1" *-- "3" Vida
 Pauline--> Personaje
-DonkeyKong o-- Pauline
+DonkeyKong "1" o-- "*" Barril
 @enduml
