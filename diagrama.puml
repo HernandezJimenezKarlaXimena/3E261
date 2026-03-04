@@ -12,10 +12,38 @@ class Abajo
 class Derecha 
 class Izquierda
 class Viga
-
+class Martillo
 
 
 Mario "1" *-- "3" Vida
 Pauline--> Personaje
 DonkeyKong "1" o-- "*" Barril
+
+class Usuario
+class Mario{
+    +saltar()
+    +subirEscalera()
+    +caminar()
+    -Vida vida[3]
+}
+
+class DonkeyKong{
+    +lanzarBarril()
+}
+
+class Pauline
+class Vida
+class Barril{
+    +rodar()
+}
+
+class Fuego{
+    +moverse()
+}
+ 
+class Viga
+class Escalera
+class Martillo
+
+Usuario 0-- Mario
 @enduml
