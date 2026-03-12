@@ -4,32 +4,26 @@ class Nivel
 class Tablero
 class Cuadricula
 class Casilla
-
 class Personaje
 class Monito
 class Color
 class CambioColor
 class Posicion
-
 class Tuberia
 class TuberiaInicio
 class TuberiaFin
 class TuberiaRecta
 class TuberiaCurva
 class TuberiaBloqueada
-
 class Flujo
 class Agua
 class Conexion
 class Entrada
 class Salida
 class Direccion
-
-class Valvula
 class Obstaculo
 class Fuga
 class Camino
-
 class Movimiento
 class Rotacion
 class Puntuacion
@@ -38,9 +32,49 @@ class Victoria
 class Derrota
 
 
+
+Juego o--Personaje
+Juego "1" *-- "*" Nivel
+Nivel "1" *-- "1" Tablero
+Tablero "1" *-- "*" Casilla
+Tablero o-- Cuadricula
+
+Casilla o-- Tuberia
+Casilla o-- Obstaculo
+
+Personaje o-- Monito
+Monito "1"o-- "1" Color
+Monito --> CambioColor
+Monito --> Posicion
+
+Tuberia o-- TuberiaInicio
+Tuberia o-- TuberiaFin
+Tuberia o-- TuberiaRecta
+Tuberia o-- TuberiaCurva
+Tuberia o-- TuberiaBloqueada
+
+Tuberia o-- Conexion
+Conexion --> Entrada
+Conexion --> Salida
+Conexion --> Direccion
+
+Flujo o-- Agua
+Flujo --> Camino
+Flujo --> Tuberia
+
+Fuga --> Agua
+
+Tuberia --> Rotacion
+Monito --> Movimiento
+
+Juego o-- Puntuacion
+Juego o-- Estado
+Estado o-- Victoria
+Estado o-- Derrota
+
 class Monito{
     +moverse()
-    +cambiarColor()
+    +cambiarColor[4]
     +interactuar()
 }
 
@@ -72,45 +106,6 @@ class Rotacion{
     +rotar()
 }
 
-
-Juego "1" *-- "*" Nivel
-Nivel "1" *-- "1" Tablero
-Tablero "1" *-- "*" Casilla
-Tablero o-- Cuadricula
-
-Casilla o-- Tuberia
-Casilla o-- Obstaculo
-
-Personaje o-- Monito
-Monito o-- Color
-Monito --> CambioColor
-Monito --> Posicion
-
-Tuberia o-- TuberiaInicio
-Tuberia o-- TuberiaFin
-Tuberia o-- TuberiaRecta
-Tuberia o-- TuberiaCurva
-Tuberia o-- TuberiaBloqueada
-
-Tuberia o-- Conexion
-Conexion --> Entrada
-Conexion --> Salida
-Conexion --> Direccion
-
-Flujo o-- Agua
-Flujo --> Camino
-Flujo --> Tuberia
-
-Valvula o-- Tuberia
-Fuga --> Agua
-
-Tuberia --> Rotacion
-Monito --> Movimiento
-
-Juego o-- Puntuacion
-Juego o-- Estado
-Estado o-- Victoria
-Estado o-- Derrota
 
 @enduml
 
